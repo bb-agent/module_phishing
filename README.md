@@ -1,7 +1,7 @@
 module_phishing
 ==============
 
-FruityWifi phishing module
+BlackBulb phishing module
 
 
 v1.2
@@ -11,4 +11,4 @@ v1.2
 
 v1.0
 ---------------------------------
-- FruityWifi v2.0 is required
+- BlackBulb v2.0 is required

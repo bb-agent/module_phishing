@@ -1,11 +1,11 @@
 <?php
 $mod_name="phishing";
 $mod_version="1.2";
-$mod_path="/usr/share/fruitywifi/www/modules/$mod_name";
+$mod_path="/usr/share/blackbulb/www/modules/$mod_name";
 $mod_logs="$log_path/$mod_name.log"; 
 $mod_logs_history="$mod_path/includes/logs/";
 $mod_panel="show";
-$mod_isup="grep 'FruityWifi-Phishing' /var/www/index.php";
+$mod_isup="grep 'BlackBulb-Phishing' /var/www/index.php";
 $mod_alias="Phishing";
 
 # EXEC

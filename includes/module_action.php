@@ -50,47 +50,47 @@ if($service == $mod_name) {
         if ( 0 < filesize( $mod_logs ) ) {
             $exec = "cp $mod_logs $mod_logs_history/".gmdate("Ymd-H-i-s").".log";
             //exec("$bin_danger \"" . $exec . "\"" ); //DEPRECATED
-            exec_fruitywifi($exec);
+            exec_blackbulb($exec);
             
             $exec = "echo '' > $mod_logs";
             //exec("$bin_danger \"" . $exec . "\"" ); //DEPRECATED
-            exec_fruitywifi($exec);
+            exec_blackbulb($exec);
         }
 	
         $exec = "ln -s $mod_path/includes/www.site /var/www/site";
         //exec("$bin_danger \"" . $exec . "\"" ); //DEPRECATED
-        exec_fruitywifi($exec);
+        exec_blackbulb($exec);
 	
         if (!file_exists("/var/www/index.php")) {
             $exec = "$bin_echo '.' >> /var/www/index.php";
-            exec_fruitywifi($exec);
+            exec_blackbulb($exec);
         }
     
-        $exec = "$bin_sed -i 1i'<? include \\\"site\/index.php\\\"; \/\* FruityWifi-Phishing \*\/ ?>' /var/www/index.php";
+        $exec = "$bin_sed -i 1i'<? include \\\"site\/index.php\\\"; \/\* BlackBulb-Phishing \*\/ ?>' /var/www/index.php";
         //exec("$bin_danger \"" . $exec . "\"" ); //DEPRECATED
-        exec_fruitywifi($exec);
+        exec_blackbulb($exec);
         
     } else if($action == "stop") {
 	
 	// STOP MODULE
 	
-        $exec = "$bin_sed -i '/FruityWifi-Phishing/d' /var/www/index.php";
+        $exec = "$bin_sed -i '/BlackBulb-Phishing/d' /var/www/index.php";
         //exec("$bin_danger \"" . $exec . "\"" ); //DEPRECATED
-        exec_fruitywifi($exec);
+        exec_blackbulb($exec);
         
         $exec = "rm /var/www/site";
         //exec("$bin_danger \"" . $exec . "\"" ); //DEPRECATED
-        exec_fruitywifi($exec);
+        exec_blackbulb($exec);
 	
 	// COPY LOG
         if ( 0 < filesize( $mod_logs ) ) {
             $exec = "cp $mod_logs $mod_logs_history/".gmdate("Ymd-H-i-s").".log";
             //exec("$bin_danger \"" . $exec . "\"" ); //DEPRECATED
-            exec_fruitywifi($exec);
+            exec_blackbulb($exec);
             
             $exec = "echo '' > $mod_logs";
             //exec("$bin_danger \"" . $exec . "\"" ); //DEPRECATED
-            exec_fruitywifi($exec);
+            exec_blackbulb($exec);
         }
 	
     }
@@ -99,9 +99,9 @@ if($service == $mod_name) {
 
 /*
 if($service == "install_portal") {
-    $exec = "/bin/ln -s /usr/share/fruitywifi/www/modules/captive/www.captive /var/www/site/captive";
+    $exec = "/bin/ln -s /usr/share/blackbulb/www/modules/captive/www.captive /var/www/site/captive";
     //exec("$bin_danger \"$exec\""); //DEPRECATED
-    exec_fruitywifi($exec);
+    exec_blackbulb($exec);
 }
 */
 
@@ -114,7 +114,7 @@ if ($service == "users" and $id_data != "") {
         
         $exec = "$bin_sed -i '/$id_data/d' $filename";
         //exec("$bin_danger \"$exec\"", $output); //DEPRECATED
-        $output = exec_fruitywifi($exec);
+        $output = exec_blackbulb($exec);
 	
         //$exec = "$bin_iptables -D internet -t mangle -m mac --mac-source $mac -j RETURN";
         //exec("$bin_danger \"$exec\"");
@@ -122,7 +122,7 @@ if ($service == "users" and $id_data != "") {
         // ADD TO LOGS
         $exec = "$bin_echo 'DELETE: $date|".date("Y-m-d h:i:s")."' >> $mod_logs ";
         //exec("$bin_danger \"$exec\""); //DEPRECATED
-        exec_fruitywifi($exec);
+        exec_blackbulb($exec);
         
 	} 
     
@@ -134,11 +134,11 @@ if ($install == "install_$mod_name") {
 
     $exec = "$bin_chmod 755 install.sh";
     //exec("$bin_danger \"$exec\"" ); //DEPRECATED
-    exec_fruitywifi($exec);
+    exec_blackbulb($exec);
 
     $exec = "$bin_sudo ./install.sh > $log_path/install.txt &";
     //exec("$bin_danger \"$exec\"" ); //DEPRECATED
-    exec_fruitywifi($exec);
+    exec_blackbulb($exec);
     
     header('Location: ../../install.php?module='.$mod_name);
     exit;

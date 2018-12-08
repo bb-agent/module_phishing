@@ -20,7 +20,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<title>FruityWifi</title>
+<title>BlackBulb</title>
 <script src="../js/jquery.js"></script>
 <script src="../js/jquery-ui.js"></script>
 <link rel="stylesheet" href="../css/jquery-ui.css" />
@@ -67,7 +67,7 @@ $service = $_POST["service"];
 if ($logfile != "" and $action == "delete") {
     $exec = "rm ".$mod_logs_history.$logfile.".log";
     //exec("$bin_danger \"$exec\"", $dump); //DEPRECATED
-    exec_fruitywifi($exec);
+    exec_blackbulb($exec);
 }
 
 ?>
@@ -79,7 +79,7 @@ if ($logfile != "" and $action == "delete") {
     <?
     $exec = "$mod_isup";
     //$ismoduleup = exec("$bin_danger \"$exec\"" ); //DEPRECATED
-    $ismoduleup = exec_fruitywifi($exec);
+    $ismoduleup = exec_blackbulb($exec);
     //$ismoduleup = exec("ps auxww | grep ngrep | grep -v -e 'grep ngrep'");
     if ($ismoduleup[0] != "") {
         echo "&nbsp;$mod_alias  <font color='lime'><b>enabled</b></font>.&nbsp; | <a href='includes/module_action.php?service=$mod_name&action=stop&page=module'><b>stop</b></a>";
@@ -144,7 +144,7 @@ Loading, please wait...
             
             $exec = "$bin_cat $filename";
             //exec("$bin_danger \"$exec\"", $output); //DEPRECATED
-            $output = exec_fruitywifi($exec);
+            $output = exec_blackbulb($exec);
             ?>
             
             <table border='0'>
